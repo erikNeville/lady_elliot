@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { About } from './pages/About';
+import { Collection } from './pages/Collection';
+import { Contact } from './pages/Contact';
+import { Gallery } from './pages/Gallery';
+import Header from './navigation/Header';
+import { Home } from './pages/Home';
+import { MenuStateProvider } from './common/context/UIContext';
 
-function App() {
+export const routeNames = [
+  'Gallery',
+  'About',
+  'Contact',
+  'Commissions',
+  'Events & Showcases',
+];
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <MenuStateProvider>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/gallery">
+            <Gallery />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/:category" component={Collection} />
+        </Switch>
+      </MenuStateProvider>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
