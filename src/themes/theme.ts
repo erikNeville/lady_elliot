@@ -13,10 +13,10 @@ const theme = {
       main: '#080808',
     },
     navTitle: {
-      main: '#997755',
+      main: '#E5E5E5',
     },
     navLinks: {
-      main: '#997755',
+      main: '#E5E5E5',
     },
     headerText: {
       main: '#D0D0D0',

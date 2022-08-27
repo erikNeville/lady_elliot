@@ -4,8 +4,8 @@ import {
   SCREEN_GUTTER,
   WIDE_SCREEN_GUTTER,
 } from '../../common/ui/shared';
-import { useMenustate } from '../../common/context/UIContext';
 import { styled } from '@mui/system';
+import { useMenustate } from '../../common/context/UIContext';
 
 const MOBILE_TOP_PADDING_MENU_CLOSED = 130;
 const MOBILE_TOP_PADDING_MENU_OPENED =

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Box, Typography } from '@mui/material';
 import {
-  contactStrings as strings,
   EMAIL,
   socialStrings,
+  contactStrings as strings,
 } from '../common/strings';
 import { MailTo, ScreenTitle, SocialLink } from './components/components';
-import saoirse from '../images/saoirse.jpg';
+import sasha from '../imgs/sasha.jpg';
 import { ScreenContainer } from './components/containers';
 import { styled } from '@mui/system';
 
@@ -33,7 +33,7 @@ export const Contact: React.FC = () => {
         {strings.CONTACT_TITLE}
       </ScreenTitle>
       <Styled.ImageBanner>
-        <img className="image" src={saoirse} alt="Saoirse" />
+        <img className="image" src={sasha} alt="Sasha" />
       </Styled.ImageBanner>
       <Typography variant="SECTION_HEADER">{strings.EMAIL_CONTACT}</Typography>
       <Typography variant="BODY">

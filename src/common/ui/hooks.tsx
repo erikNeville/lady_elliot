@@ -15,8 +15,8 @@ const ToTopBtn = styled(Button)({
   width: '100px',
 });
 
-export const withScrollToTop = <P extends object>(
-  WrappedComponent: React.ComponentType<P>
+export const withScrollToTop = <P extends Record<string, unknown>>(
+  WrappedComponent: React.ComponentType<P>,
 ): React.FC<P> => {
   const WithScroll: React.FC<P> = (props) => {
     const handleScroll = () => {
@@ -35,22 +35,19 @@ export const withScrollToTop = <P extends object>(
   return WithScroll;
 };
 
-interface WindowDimensions {
-  width: number;
-  height: number;
-}
+type WindowDimensions = {
+  screenWidth: number;
+  screenHeight: number;
+};
 
-const getWindowDimensions = () => {
+const getWindowDimensions = (): WindowDimensions => {
   const { innerWidth: screenWidth, innerHeight: screenHeight } = window;
   return { screenWidth, screenHeight };
 };
 
-export const useWindowDimensions = (): {
-  screenWidth: number;
-  screenHeight: number;
-} => {
+export const useWindowDimensions = (): WindowDimensions => {
   const [windowDimensions, setWindowDimensions] = React.useState(
-    getWindowDimensions()
+    getWindowDimensions(),
   );
 
   React.useEffect(() => {

@@ -1,8 +1,7 @@
 import * as React from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import CategorizedImageDisplay from './components/image';
-import ImageDisplay from './components/ImageDisplay';
 import { ScreenContainer } from './components/containers';
-import { useLocation } from 'react-router-dom';
 
 interface ICollection {
   category: string;
@@ -10,8 +9,10 @@ interface ICollection {
 
 export const Collection: React.FC = () => {
   const location = useLocation();
+  const { category: paramsCategory } = useParams<ICollection>();
+
   const collectionState = location.state as ICollection;
-  const category = collectionState && collectionState.category;
+  const category = collectionState.category ?? paramsCategory;
 
   return (
     <ScreenContainer>

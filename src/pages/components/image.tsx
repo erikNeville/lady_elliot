@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Backdrop, Box, Fade, Modal, Stack, Typography } from '@mui/material';
-import { ImageContext, IImage } from '../../state/imgState';
-import { styled } from '@mui/system';
+import { IImage, ImageContext } from '../../state/imgState';
 import { useWindowDimensions, withScrollToTop } from '../../common/ui/hooks';
+import { styled } from '@mui/system';
 
 const ImageWrapper = styled(Box)({
   display: 'flex',
@@ -57,6 +57,7 @@ const ImageSubtitle = styled(Stack)({
 
 const ModalBox = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'imgWidth' && prop !== 'imgHeight',
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 })<{ imgWidth: string; imgHeight: string }>(({ imgWidth, imgHeight }) => ({
   position: 'absolute',
   top: '50%',
@@ -66,8 +67,6 @@ const ModalBox = styled(Box, {
   maxWidth: '90%',
   height: '90%',
   maxHeight: '90%',
-  // width: '90%',
-  // maxHeight: '90%',
 
   '& .modal-img': {
     position: 'relative',
@@ -80,6 +79,7 @@ const ModalBox = styled(Box, {
 
 interface Props {
   category: string;
+  hideTitles?: boolean;
 }
 
 interface ModalProps {
@@ -93,9 +93,10 @@ interface ModalProps {
 
 interface ImageProps {
   image: IImage;
+  hideTitle?: boolean;
 }
 
-const ImageModal = (props: ModalProps) => {
+const ImageModal = (props: ModalProps): JSX.Element => {
   const { source, title, imgSize, open, handleClose } = props;
   const { width, height } = imgSize;
 
@@ -133,7 +134,7 @@ const ImageModal = (props: ModalProps) => {
   );
 };
 
-const SingleImage = ({ image }: ImageProps) => {
+const SingleImage = ({ image, hideTitle = false }: ImageProps) => {
   const { src, title, width, height, medium } = image;
   const [open, setOpen] = React.useState(false);
   const sizeRef = React.useRef({ width: '', height: '' });
@@ -155,11 +156,11 @@ const SingleImage = ({ image }: ImageProps) => {
         }
       }
     },
-    [screenHeight, screenWidth]
+    [screenHeight, screenWidth],
   );
 
   const handleOpen = (
-    e: React.MouseEvent<HTMLImageElement, MouseEvent>
+    e: React.MouseEvent<HTMLImageElement, MouseEvent>,
   ): void => {
     e.preventDefault();
 
@@ -196,7 +197,7 @@ const SingleImage = ({ image }: ImageProps) => {
           />
         </ImageBox>
         <ImageDetails className="image-details">
-          <ImageTitle variant="IMAGE_TITLE">{title}</ImageTitle>
+          {!hideTitle && <ImageTitle variant="IMAGE_TITLE">{title}</ImageTitle>}
           <ImageSubtitle className="image-subtitle" direction="row">
             <Typography variant="IMAGE_DESC" sx={{ fontSize: '14px' }}>
               {width.toString()}&quot; X {height.toString()}
@@ -223,14 +224,17 @@ const SingleImage = ({ image }: ImageProps) => {
   );
 };
 
-const CategorizedImageDisplay: React.FC<Props> = ({ category }) => {
+const CategorizedImageDisplay: React.FC<Props> = ({
+  category,
+  hideTitles = false,
+}) => {
   const { images } = React.useContext(ImageContext);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, [category]);
 
-  const MemoDisplay = () => {
+  const MemoDisplay = (): JSX.Element => {
     const [filteredImgs, setFilteredImgs] = React.useState<IImage[]>();
     React.useEffect(() => {
       const imgs = images.filter((image) => image.category === category);
@@ -245,7 +249,7 @@ const CategorizedImageDisplay: React.FC<Props> = ({ category }) => {
         {filteredImgs &&
           filteredImgs.map((image: IImage, index) => (
             <React.Fragment key={index}>
-              <SingleImage image={image} />
+              <SingleImage image={image} hideTitle={hideTitles} />
             </React.Fragment>
           ))}
       </ImageWrapper>

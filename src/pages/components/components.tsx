@@ -1,6 +1,6 @@
-import React from 'react';
-import { styled } from '@mui/system';
+import * as React from 'react';
 import { Link, Typography } from '@mui/material';
+import { styled } from '@mui/system';
 
 type MailToProps = {
   email: string;
@@ -22,7 +22,7 @@ export const ScreenTitle = styled(Typography)`
 export const SectionHeader = styled('h3')`
   padding-top: 8px;
   padding-bottom: 8px;
-  color: ${(props) => props.theme.palette.headertext.main};
+  color: ${(props) => props.theme.palette.headerText.main};
 `;
 
 export const SectionText = styled('p')`
@@ -31,7 +31,12 @@ export const SectionText = styled('p')`
   color: ${(props) => props.theme.palette.subtext.main};
 `;
 
-export const MailTo = ({ email, subject, body, children }: MailToProps) => {
+export const MailTo = ({
+  email,
+  subject,
+  body,
+  children,
+}: MailToProps): React.ReactElement => {
   return (
     <Link
       href={`mailto:${email}?subject=${
@@ -45,7 +50,10 @@ export const MailTo = ({ email, subject, body, children }: MailToProps) => {
   );
 };
 
-export const SocialLink = ({ address, text }: SocialLinkProps) => {
+export const SocialLink = ({
+  address,
+  text,
+}: SocialLinkProps): React.ReactElement => {
   return (
     <Link
       href={address}

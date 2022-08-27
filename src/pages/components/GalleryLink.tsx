@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { Categories } from '../../state/imgState';
 import { Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import { Categories } from '../../state/imageState';
 import { styled } from '@mui/system';
 
 type Props = {

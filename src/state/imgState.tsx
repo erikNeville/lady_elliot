@@ -2,7 +2,6 @@ import * as React from 'react';
 import amethystMermaid from '../imgs/amethyst_mermaid.12x36.jpg';
 import andromedaMermaid from '../imgs/andromeda_mermaid.16x40.jpg';
 import atomicDawg from '../imgs/atomic_dawg333.jpg';
-import balloonPlanets from '../imgs/balloon_planets.jpg';
 import balloondogBlue from '../imgs/balloondog_blue.jpg';
 import balloondogLilac from '../imgs/balloondog_lilac.jpg';
 import balloondogPink from '../imgs/balloondog_pink.jpg';
@@ -13,6 +12,7 @@ import balloonicornOrange from '../imgs/balloonicorn_orange.jpg';
 import balloonicornPink from '../imgs/balloonicorn_pink.jpg';
 import balloonicornPurple from '../imgs/balloonicorn_purple.jpg';
 import balloonicornYellow from '../imgs/balloonicorn_yellow.jpg';
+import balloonPlanets from '../imgs/balloon_planets.jpg';
 import bananaBabyKitten from '../imgs/banana_baby_kitten.12x18.jpg';
 import blueBaby from '../imgs/blue_baby.14x14.jpg';
 import blueFlamingo from '../imgs/blue_flamingo.12x16.jpg';
@@ -71,8 +71,8 @@ import rainbowGiraffe from '../imgs/rainbow_giraffe.16x40.jpg';
 import redVelvetMermaid from '../imgs/red_velvet_mermaid.16x40.jpg';
 import robotHorseRace from '../imgs/robot_horse_race667.jpg'; // TODO: find and replace with original
 import saltWaterTaffyMermaid from '../imgs/salt_water_taffy_mermaid.12x36.jpg';
-import saoirse from '../imgs/saoirse.jpg';
-import saturn from '../imgs/saturn.18x24.jpg';
+import sasha from '../imgs/sasha.jpg';
+// import saturn from '../imgs/saturn.18x24.jpg';
 import seaplane from '../imgs/seaplane.48x24.jpg';
 import spaceCadet from '../imgs/sun_bun.20x20.jpg';
 import theAgent from '../imgs/the_agent.jpg';
@@ -83,6 +83,7 @@ import winterTreesSilhouette from '../imgs/winter_trees_silhouette.16x16.png';
 import zebra from '../imgs/zebra.18x24.jpg';
 
 export enum Categories {
+  WoodPanelPnwLandscapes = 'new-for-2022',
   Animals = 'animals',
   BalloonAnimals = 'balloon-animals',
   Crystals = 'crystals',
@@ -90,7 +91,14 @@ export enum Categories {
   Music = 'music',
   People = 'people',
   Landscapes = 'landscapes',
+  Commissions = 'commissions',
+  Cats = 'cats',
+  // make cat category - Elliot will get me which cats
+  // starwars category
+  // macromay
 }
+
+// TODO find mermaid & octopus, portia portrait
 
 export interface IImage {
   src: string;
@@ -133,7 +141,7 @@ const initState: ImageState = {
     {
       src: bananaBabyKitten,
       title: 'Banana Baby Kitten',
-      category: Categories.Animals,
+      category: Categories.Cats,
       medium: ACRYLIC,
       width: 12,
       height: 18,
@@ -165,7 +173,7 @@ const initState: ImageState = {
     {
       src: catFairy,
       title: 'Cat Fairy',
-      category: Categories.Animals,
+      category: Categories.Cats,
       medium: ACRYLIC,
       width: 16,
       height: 20,
@@ -243,8 +251,8 @@ const initState: ImageState = {
       height: 30,
     },
     {
-      src: saoirse,
-      title: 'Saoirse',
+      src: sasha,
+      title: 'Sasha',
       category: Categories.Music,
       medium: ACRYLIC,
       width: 40,
@@ -421,7 +429,7 @@ const initState: ImageState = {
     {
       src: commissionCobra,
       title: 'Commission Cobra',
-      category: Categories.Animals,
+      category: Categories.Commissions,
       medium: ACRYLIC,
       width: 15,
       height: 30,
@@ -429,7 +437,7 @@ const initState: ImageState = {
     {
       src: commissionDog,
       title: 'Commission Dog',
-      category: Categories.Animals,
+      category: Categories.Commissions,
       medium: ACRYLIC,
       width: 12,
       height: 24,
@@ -437,7 +445,7 @@ const initState: ImageState = {
     {
       src: commissionFamily,
       title: 'Commission Family',
-      category: Categories.People,
+      category: Categories.Commissions,
       medium: ACRYLIC,
       width: 38,
       height: 16,
@@ -453,7 +461,7 @@ const initState: ImageState = {
     {
       src: cosmicTigerQueen,
       title: 'Cosmic Tiger Queen',
-      category: Categories.Animals,
+      category: Categories.Music,
       medium: ACRYLIC,
       width: 48,
       height: 24,
@@ -541,7 +549,7 @@ const initState: ImageState = {
     {
       src: vanillaIceCreamKitten,
       title: 'Ice Cream Vanilla Sprinkle Kitten',
-      category: Categories.Animals,
+      category: Categories.Cats,
       medium: ACRYLIC,
       width: 12,
       height: 24,
@@ -557,7 +565,7 @@ const initState: ImageState = {
     {
       src: kitticornTrio,
       title: 'Kitticorn Trio',
-      category: Categories.Animals,
+      category: Categories.Cats,
       medium: ACRYLIC,
       width: 20,
       height: 16,
@@ -565,7 +573,7 @@ const initState: ImageState = {
     {
       src: magentaBossServal,
       title: 'Magenta Boss Serval',
-      category: Categories.Animals,
+      category: Categories.Cats,
       medium: ACRYLIC,
       width: 15,
       height: 30,
@@ -661,7 +669,7 @@ const initState: ImageState = {
     {
       src: purrmaidBlue,
       title: 'Purrmaid Blue',
-      category: Categories.Animals,
+      category: Categories.Cats,
       medium: ACRYLIC,
       width: 12,
       height: 24,
@@ -669,7 +677,7 @@ const initState: ImageState = {
     {
       src: qslLogo,
       title: 'Commission QSL Logo',
-      category: Categories.Landscapes,
+      category: Categories.Commissions,
       medium: ACRYLIC,
       width: 20,
       height: 16,
@@ -693,7 +701,7 @@ const initState: ImageState = {
     {
       src: theCommonLoon,
       title: 'The Common Loon',
-      category: Categories.Animals,
+      category: Categories.Commissions,
       medium: ACRYLIC,
       width: 15,
       height: 30,
@@ -725,18 +733,10 @@ const initState: ImageState = {
     {
       src: purrmaidPurple,
       title: 'Purrmaid Purple',
-      category: Categories.Animals,
+      category: Categories.Cats,
       medium: ACRYLIC,
       width: 16,
       height: 16,
-    },
-    {
-      src: saturn,
-      title: 'Saturn',
-      category: Categories.Landscapes,
-      medium: ACRYLIC,
-      width: 18,
-      height: 24,
     },
     {
       src: winterTreesSilhouette,
@@ -751,7 +751,9 @@ const initState: ImageState = {
 
 export const ImageContext = React.createContext(initState);
 
-export const ImageProvider = ({ children }: ImageProviderProps) => {
+export const ImageProvider = ({
+  children,
+}: ImageProviderProps): JSX.Element => {
   return (
     <ImageContext.Provider value={initState}>{children}</ImageContext.Provider>
   );
