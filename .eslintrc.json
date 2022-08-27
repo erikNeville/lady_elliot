@@ -23,7 +23,7 @@
     "object-curly-spacing": [2, "always"],
     "no-multiple-empty-lines": ["error", { "max": 1 }],
     "sort-imports": [
-      "error",
+      "warn",
       {
         "ignoreCase": true,
         "memberSyntaxSortOrder": ["all", "multiple", "single", "none"]

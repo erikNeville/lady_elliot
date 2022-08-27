@@ -14,6 +14,11 @@ const Styled = {
     maxWidth: '650px',
   }),
   ImageBox: styled(Box)({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
+
     margin: '24px auto 0',
     '& .home-image': {
       maxHeight: '600px',
@@ -23,6 +28,7 @@ const Styled = {
       marginBottom: '12px',
     },
     '& .etsy-img': {
+      margin: '0 auoto',
       width: '300px',
     },
   }),
@@ -31,8 +37,13 @@ const Styled = {
 export const Home: React.FC = () => {
   return (
     <ScreenContainer>
-      <Styled.ImageBox>
-        <Link underline="none">
+      <Styled.ImageBox sx={{ marginBottom: '48px' }}>
+        <Link
+          underline="none"
+          href="https://www.etsy.com/shop/LadyElliot"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             className="home-image etsy-img"
             src={etsyImg}
