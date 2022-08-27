@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { createCustomContext } from './createCustomContext';
 
 type MenuProviderProps = {
@@ -14,7 +13,9 @@ type MenuContextType = {
 export const [useMenustate, CustomContextProvider] =
   createCustomContext<MenuContextType>();
 
-export const MenuStateProvider = ({ children }: MenuProviderProps) => {
+export const MenuStateProvider = ({
+  children,
+}: MenuProviderProps): React.ReactElement => {
   const [menustate, setMenustate] = React.useState(false);
 
   React.useEffect(() => {

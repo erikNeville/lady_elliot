@@ -8,7 +8,11 @@ interface NavLinkProps {
   navRoute: string;
 }
 
-export const NavLink = ({ closeNav, tabIndex, navRoute }: NavLinkProps) => {
+export const NavLink = ({
+  closeNav,
+  tabIndex,
+  navRoute,
+}: NavLinkProps): React.ReactElement => {
   const formatToString = React.useMemo(() => {
     const route = navRoute.toLowerCase().split(' ');
     return '/' + route[0];

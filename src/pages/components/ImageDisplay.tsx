@@ -10,7 +10,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { ImageContext, IImage } from '../../state/imgState';
+import { IImage, ImageContext } from '../../state/imgState';
 import { styled } from '@mui/system';
 
 const Styled = {
@@ -54,7 +54,7 @@ const imageTitle = (title: string): JSX.Element => (
 const imageSubtitle = (
   width: number,
   height: number,
-  medium: string
+  medium: string,
 ): JSX.Element => (
   <Stack direction="row" justifyContent="center">
     <Typography variant="IMAGE_DESC">
@@ -140,7 +140,7 @@ const ImageDisplay: React.FC<Props> = ({ category }) => {
                     subtitle={imageSubtitle(
                       image.width,
                       image.height,
-                      image.medium
+                      image.medium,
                     )}
                   />
                 </ImageListItem>

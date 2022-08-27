@@ -24,7 +24,9 @@ const TRANSITION = (displaymenu: boolean): string => {
   }
 };
 
-const RootContainer = styled('nav')(
+const RootContainer = styled('nav', {
+  shouldForwardProp: (prop) => prop !== 'displaymenu'
+})<{displaymenu: boolean}>(
   ({ theme, displaymenu }: MobileNavProps) => ({
     background: theme && theme.palette.nav.main,
     alignSelf: 'center',

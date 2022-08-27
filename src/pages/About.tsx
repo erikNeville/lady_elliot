@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { aboutStrings as strings } from '../common/strings';
 import { Box, Typography } from '@mui/material';
-import cosmic_tiger from '../images/cosmic_tiger.jpg';
+import cosmicTiger from '../imgs/cosmic_tiger.jpg';
 import { ScreenContainer } from './components/containers';
+import { aboutStrings as strings } from '../common/strings';
 import { styled } from '@mui/system';
 
 const Styled = {
@@ -16,14 +16,14 @@ const Styled = {
       objectFit: 'cover',
     },
   }),
-  Header: styled(Typography)(({ theme }) => ({
-    paddingBottom: '8px',
-    color: theme.palette.headerText.main,
-  })),
-  BodyText: styled(Typography)(({ theme }) => ({
-    marginBottom: '16px',
-    color: theme.palette.subText.main,
-  })),
+  // Header: styled(Typography)(({ theme }) => ({
+  //   paddingBottom: '8px',
+  //   color: theme.palette.headerText.main,
+  // })),
+  // BodyText: styled(Typography)(({ theme }) => ({
+  //   marginBottom: '16px',
+  //   color: theme.palette.subText.main,
+  // })),
 };
 
 export const About: React.FC = () => {
@@ -32,7 +32,7 @@ export const About: React.FC = () => {
       <Styled.ImageBanner>
         <img
           className="image"
-          src={cosmic_tiger}
+          src={cosmicTiger}
           alt="Cosmic Tiger Queen 24x48"
         />
       </Styled.ImageBanner>

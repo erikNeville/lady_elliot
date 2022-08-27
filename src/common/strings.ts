@@ -52,6 +52,7 @@ export const commissionStrings = {
     'Commissioned paintings are a joint venture between you as the client and my artistic style. I use a very specific process for working and communicating with you to create your commission and I will provide a price estimate for you and a concept sketch prior to beginning the final painting.',
   COMMISSION_PROCESS_TEXT_2:
     'Please keep in mind that the cost of a commission is determined by multiple factors including the size of canvas, complexity of the request and the amount of time it takes to create your painting. If you would like to learn more about the commission process or to discuss commissioning a painting contact me at ',
+  COMMISSION_GALLERY: 'Former Commission Gallery',
 };
 
 // Events & showcases screen

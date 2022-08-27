@@ -9,16 +9,15 @@ const RootContainer = styled('nav')(({ theme }) => ({
   background: theme.palette.nav.main,
   alignItems: 'center',
   justifyContent: 'center',
-  paddingTop: '18px',
-  paddingBottom: '18px',
+  padding: '18px 0',
   display: 'flex',
   flexFlow: 'row nowrap',
   height: '28px',
 
   '@media screen and (max-width: 855px)': {
-    height: '64px',
+    height: '72px',
     flexFlow: 'column nowrap',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
 
   '& .nav-links': {
