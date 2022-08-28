@@ -9,7 +9,7 @@ const Styled = {
   Root: styled(Box)({
     width: '40vw',
     ['@media (max-width:855px)']: {
-      width: 'max-content',
+      width: 'unset',
     },
   }),
 };
@@ -19,7 +19,7 @@ const Signature = styled('img')({
   objectFit: 'contain',
   objectPosition: '50% 50%',
   height: '78px',
-  width: 'max-content',
+  width: '100%',
   margin: '0 auto',
   cursor: 'pointer',
 });

@@ -36,7 +36,6 @@ const NavButton = styled(Button)(({ theme }) => ({
     backgroundColor: 'transparent',
   },
   '@media (max-width:855px)': {
-    // width: '100%',
     animation: `${fadeIn} ease 1s`,
     display: 'block',
   },

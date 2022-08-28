@@ -8,7 +8,6 @@ import {
 import { styled } from '@mui/system';
 import { useMenustate } from '../../common/context/UIContext';
 
-// const TOP_PADDING = 130;
 const TOP_PADDING = NAV_BAR_HEIGHT + 48;
 const MOBILE_TOP_PADDING_MENU_OPENED = TOP_PADDING + MOBILE_NAV_EXPAND_SECTION;
 
