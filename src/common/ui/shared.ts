@@ -1,3 +1,14 @@
+import { keyframes } from '@mui/system';
+
+export const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
 export const MAX_WIDTH_BREAKPOINT = 855;
 
 export const SCREEN_GUTTER = '32px';

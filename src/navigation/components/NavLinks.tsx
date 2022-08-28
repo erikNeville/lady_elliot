@@ -12,7 +12,7 @@ export const NavLinks: React.FC<HeaderProps> = ({
     if (displaymenu) {
       toggleMobileNav();
     }
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [displaymenu, toggleMobileNav]);
 
   let tabIndex: number | undefined;

@@ -1,24 +1,15 @@
 import * as React from 'react';
-import { keyframes, styled } from '@mui/system';
 import Button from '@mui/material/Button';
+import { fadeIn } from '../../common/ui/shared';
+import { styled } from '@mui/system';
 
 interface NavMenuButtonProps {
   navButtonDisplay: string;
   onClick: () => void;
 }
 
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
 const NavButton = styled(Button)(({ theme }) => ({
   color: theme.palette.navLinks.main,
-  // background: 'transparent',
   fontSize: '22px',
   border: 'none',
   display: 'none',

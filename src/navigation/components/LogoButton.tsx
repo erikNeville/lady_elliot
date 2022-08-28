@@ -30,6 +30,7 @@ export const LogoButton: React.FC<HeaderProps> = ({
       to="/"
       className="logo-link"
       onClick={closeNav}
+      sx={{ width: '40vw' }}
     >
       <Signature
         className="signature-logo"

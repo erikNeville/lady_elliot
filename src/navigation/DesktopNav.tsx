@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { fadeIn } from '../common/ui/shared';
 import { HeaderProps } from './Header';
 import { LogoButton } from './components/LogoButton';
 import { NavLinks } from './components/NavLinks';
@@ -13,7 +14,7 @@ const RootContainer = styled('nav')(({ theme }) => ({
   display: 'flex',
   flexFlow: 'row nowrap',
   height: '28px',
-  '@media screen and (max-width: 855px)': {
+  ['@media (max-width:855px)']: {
     height: '72px',
     maxHeight: '72px',
     flexFlow: 'column nowrap',
@@ -26,38 +27,13 @@ const RootContainer = styled('nav')(({ theme }) => ({
     justifyContent: 'center',
     listStyle: 'none',
     width: '60vw',
-    animation: 'fadeIn ease 1s',
-    WebkitAnimation: 'fadeIn ease 1s',
-    MozAnimation: 'fadeIn ease 1s',
-    OAnimation: 'fadeIn ease 1s',
-    msAnimation: 'fadeIn ease 1s',
-
-    '@media screen and (max-width: 855px)': {
+    animation: `${fadeIn} ease 1s`,
+    WebkitAnimation: `${fadeIn} ease 1s`,
+    MozAnimation: `${fadeIn} ease 1s`,
+    OAnimation: `${fadeIn} ease 1s`,
+    msAnimation: `${fadeIn} ease 1s`,
+    ['@media (max-width:855px)']: {
       display: 'none',
-    },
-    '@keyframes fadeIn': {
-      '0%': {
-        opacity: 0,
-      },
-      '100%': {
-        opacity: 1,
-      },
-    },
-    '@-moz-keyframes fadeIn': {
-      '0%': {
-        opacity: 0,
-      },
-      '100%': {
-        opacity: 1,
-      },
-    },
-    '@-webkit-keyframes fadeIn': {
-      '0%': {
-        opacity: 0,
-      },
-      '100%': {
-        opacity: 1,
-      },
     },
   },
 
@@ -86,7 +62,7 @@ export const DesktopNav: React.FC<HeaderProps> = ({
     <RootContainer>
       <LogoButton displaymenu={displaymenu} toggleMobileNav={toggleMobileNav} />
       <NavLinks displaymenu={displaymenu} toggleMobileNav={toggleMobileNav} />
-      <NavMenuButton navButtonDisplay={'menu'} onClick={toggleMobileNav} />
+      <NavMenuButton navButtonDisplay="menu" onClick={toggleMobileNav} />
     </RootContainer>
   );
 };
