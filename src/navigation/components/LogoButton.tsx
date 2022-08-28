@@ -1,22 +1,35 @@
 import * as React from 'react';
+import { Box } from '@mui/material';
 import { HeaderProps } from '../Header';
-import { Link } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
 import signature from '../../imgs/links/elliot_signature_logo.png';
 import { styled } from '@mui/system';
+import { useHistory } from 'react-router-dom';
+
+const Styled = {
+  Root: styled(Box)({
+    width: '40vw',
+    backgroundColor: 'purple',
+    ['@media (max-width:855px)']: {
+      width: 'max-content',
+    },
+  }),
+};
 
 const Signature = styled('img')({
   display: 'block',
   objectFit: 'contain',
   objectPosition: '50% 50%',
   height: '60px',
-  width: '100%',
+  width: 'max-content',
+  margin: '0 auto',
+  cursor: 'pointer',
 });
 
 export const LogoButton: React.FC<HeaderProps> = ({
   displaymenu,
   toggleMobileNav,
 }) => {
+  const history = useHistory();
   const closeNav = React.useCallback(() => {
     if (displaymenu) {
       toggleMobileNav();
@@ -24,19 +37,19 @@ export const LogoButton: React.FC<HeaderProps> = ({
     window.scrollTo(0, 0);
   }, [displaymenu, toggleMobileNav]);
 
+  const handleClick = (): void => {
+    closeNav();
+    history.push('/');
+  };
+
   return (
-    <Link
-      component={RouterLink}
-      to="/"
-      className="logo-link"
-      onClick={closeNav}
-      sx={{ width: '40vw' }}
-    >
+    <Styled.Root>
       <Signature
         className="signature-logo"
         src={signature}
         alt="Lady Elliot Art"
+        onClick={handleClick}
       />
-    </Link>
+    </Styled.Root>
   );
 };
