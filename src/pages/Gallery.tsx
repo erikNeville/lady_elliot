@@ -108,6 +108,10 @@ export const Gallery: React.FC = () => {
       .join(' ');
   }, []);
 
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <ScreenContainer>
       <Styled.LinkContainer>

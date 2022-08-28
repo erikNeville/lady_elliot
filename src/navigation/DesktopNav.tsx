@@ -13,13 +13,12 @@ const RootContainer = styled('nav')(({ theme }) => ({
   display: 'flex',
   flexFlow: 'row nowrap',
   height: '28px',
-
   '@media screen and (max-width: 855px)': {
     height: '72px',
+    maxHeight: '72px',
     flexFlow: 'column nowrap',
     justifyContent: 'space-evenly',
   },
-
   '& .nav-links': {
     display: 'flex',
     alignItems: 'center',
