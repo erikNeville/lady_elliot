@@ -1,18 +1,16 @@
 import * as React from 'react';
-import { Box, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import { styled } from '@mui/system';
 
-const Root = styled(Box)({
-  position: 'fixed',
-  bottom: 4,
-  left: 4,
-  height: '60px',
-  width: '100%',
-});
-
 const ToTopBtn = styled(Button)({
-  height: '60px',
-  width: '100px',
+  position: 'fixed',
+  bottom: 16,
+  right: 16,
+  padding: 0,
+  backgroundColor: 'rgba(0,0,0,0.5)',
+  '&:hover': {
+    backgroundColor: 'rgba(0,0,0,1)',
+  },
 });
 
 export const withScrollToTop = <P extends Record<string, unknown>>(
@@ -20,15 +18,13 @@ export const withScrollToTop = <P extends Record<string, unknown>>(
 ): React.FC<P> => {
   const WithScroll: React.FC<P> = (props) => {
     const handleScroll = () => {
-      document.querySelector('body')?.scrollTo(0, 0);
-      // window.scrollTo(0, 0);
+      document.querySelector('body')?.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     return (
       <>
         <WrappedComponent {...(props as P)} />
-        <Root>
-          <ToTopBtn onClick={handleScroll}>To Top</ToTopBtn>
-        </Root>
+        <ToTopBtn onClick={handleScroll}>To Top</ToTopBtn>
       </>
     );
   };

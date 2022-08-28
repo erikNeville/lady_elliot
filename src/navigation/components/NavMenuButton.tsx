@@ -18,7 +18,7 @@ const fadeIn = keyframes`
 
 const NavButton = styled(Button)(({ theme }) => ({
   color: theme.palette.navLinks.main,
-  background: 'transparent',
+  // background: 'transparent',
   fontSize: '22px',
   border: 'none',
   display: 'none',
@@ -38,6 +38,9 @@ const NavButton = styled(Button)(({ theme }) => ({
   '&:focus': {
     outline: 'none',
   },
+  '&:hover': {
+    backgroundColor: 'transparent',
+  },
   '@media (max-width:855px)': {
     width: '100%',
     animation: `${fadeIn} ease 1s`,
@@ -50,7 +53,7 @@ export const NavMenuButton: React.FC<NavMenuButtonProps> = ({
   onClick,
 }) => {
   return (
-    <NavButton onClick={onClick} variant="text">
+    <NavButton onClick={onClick} variant="text" disableTouchRipple>
       <p className="menu">{navButtonDisplay}</p>
     </NavButton>
   );
