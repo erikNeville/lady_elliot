@@ -1,15 +1,16 @@
 import * as React from 'react';
 import {
-  OPENED_CLOSED_MENU_DIFFERENCE,
+  MOBILE_NAV_EXPAND_SECTION,
+  NAV_BAR_HEIGHT,
   SCREEN_GUTTER,
   WIDE_SCREEN_GUTTER,
 } from '../../common/ui/shared';
 import { styled } from '@mui/system';
 import { useMenustate } from '../../common/context/UIContext';
 
-const MOBILE_TOP_PADDING_MENU_CLOSED = 130;
-const MOBILE_TOP_PADDING_MENU_OPENED =
-  MOBILE_TOP_PADDING_MENU_CLOSED + OPENED_CLOSED_MENU_DIFFERENCE;
+// const TOP_PADDING = 130;
+const TOP_PADDING = NAV_BAR_HEIGHT + 48;
+const MOBILE_TOP_PADDING_MENU_OPENED = TOP_PADDING + MOBILE_NAV_EXPAND_SECTION;
 
 interface RootContainerProps {
   paddingtop: number;
@@ -19,10 +20,10 @@ interface RootContainerProps {
 export const RootContainer = styled('div', {
   shouldForwardProp: (prop) => prop !== 'menustate',
 })(({ menustate, paddingtop }: RootContainerProps) => ({
-  paddingTop: '100px',
+  paddingTop: `${TOP_PADDING}px`,
   paddingLeft: WIDE_SCREEN_GUTTER,
   paddingRight: WIDE_SCREEN_GUTTER,
-  paddingBottom: '20px',
+  paddingBottom: '32px',
   maxWidth: '1000px',
   marginLeft: 'auto',
   marginRight: 'auto',
@@ -31,7 +32,7 @@ export const RootContainer = styled('div', {
     transition: menustate
       ? 'padding-top 0.2s ease-in'
       : 'padding-top 0.2s ease-out',
-    paddingTop: paddingtop + 'px',
+    paddingTop: `${paddingtop}px`,
     paddingLeft: SCREEN_GUTTER,
     paddingRight: SCREEN_GUTTER,
   },
@@ -54,9 +55,7 @@ export const ScreenContainer: React.FC<ScreenContainerProps> = ({
       setMenustate(false);
     }
   }, [menustate, setMenustate]);
-  const paddingtop = menustate
-    ? MOBILE_TOP_PADDING_MENU_OPENED
-    : MOBILE_TOP_PADDING_MENU_CLOSED;
+  const paddingtop = menustate ? MOBILE_TOP_PADDING_MENU_OPENED : TOP_PADDING;
 
   return (
     <ScreenDiv onClick={toggleMobileNav}>

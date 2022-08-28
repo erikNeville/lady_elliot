@@ -1,48 +1,36 @@
 import * as React from 'react';
 import { Accordion, AccordionDetails } from '@mui/material';
 import { HeaderProps } from './Header';
+import { MOBILE_NAV_EXPAND_SECTION } from '../common/ui/shared';
 import { NavLinks } from './components/NavLinks';
 import { styled } from '@mui/system';
 
-const MAXHEIGHT = (displaymenu: boolean): string => {
-  if (displaymenu) {
-    return '190px';
-  } else {
-    return '0px';
-  }
-};
+const expandHeight = `${MOBILE_NAV_EXPAND_SECTION}px`;
 
-const TRANSITION = (displaymenu: boolean): string => {
-  if (displaymenu) {
-    return 'max-height 0.2s ease-in';
-  } else {
-    return 'max-height 0.2s ease-out';
-  }
-};
+const getTransition = (displayMenu: boolean): string =>
+  displayMenu ? 'height 0.2s ease-in' : 'height 0.2s ease-out';
 
 const RootContainer = styled('nav', {
   shouldForwardProp: (prop) => prop !== 'displaymenu',
 })<{ displaymenu: boolean }>(({ theme, displaymenu }) => ({
   background: theme.palette.nav.main,
-  display: 'block',
+  display: 'flex',
   flexFlow: 'column nowrap',
-  justifyContent: 'center',
-  maxHeight: '190px',
+  alignItems: 'end',
   width: '100%',
   '& .nav-links': {
-    maxHeight: MAXHEIGHT(displaymenu),
+    height: displaymenu ? expandHeight : 0,
+    transition: getTransition(displaymenu),
+    paddingRight: '40px',
     overflow: 'hidden',
-    textAlign: 'center',
-    transition: TRANSITION(displaymenu),
+    textAlign: 'right',
   },
   '& .link': {
     color: theme.palette.navLinks.main,
     padding: '8px 8px',
-    display: 'flex',
-    flexFlow: 'column nowrap',
+    display: 'block',
     fontSize: '16px',
     fontWeight: 500,
-    textAlign: 'center',
     textDecoration: 'none',
     transition: 'all 0.2s ease-out',
     '&:hover': {
@@ -54,6 +42,7 @@ const RootContainer = styled('nav', {
   },
 }));
 
+// Expanded section that appears when clicking MENU
 export const MobileNav: React.FC<HeaderProps> = ({
   displaymenu,
   toggleMobileNav,

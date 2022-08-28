@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { fadeIn } from '../common/ui/shared';
+import { DESKTOP_NAV_HEIGHT, fadeIn } from '../common/ui/shared';
 import { HeaderProps } from './Header';
 import { LogoButton } from './components/LogoButton';
 import { NavLinks } from './components/NavLinks';
@@ -7,18 +7,22 @@ import { NavMenuButton } from './components/NavMenuButton';
 import { styled } from '@mui/system';
 
 const RootContainer = styled('nav')(({ theme }) => ({
+  position: 'relative',
   background: theme.palette.nav.main,
   alignItems: 'center',
-  justifyContent: 'center',
+  // justifyContent: 'center',
+  justifyContent: 'space-between',
   padding: '18px 0',
   display: 'flex',
   flexFlow: 'row nowrap',
-  height: '28px',
+  height: `${DESKTOP_NAV_HEIGHT}px`,
   ['@media (max-width:855px)']: {
-    height: '72px',
+    // height: '72px',
+    padding: '18px 40px',
+    // padding: '18px 40px',
     maxHeight: '72px',
-    flexFlow: 'column nowrap',
-    justifyContent: 'space-evenly',
+    // flexFlow: 'column nowrap',
+    // justifyContent: 'space-between',
   },
   '& .nav-links': {
     display: 'flex',
@@ -36,7 +40,6 @@ const RootContainer = styled('nav')(({ theme }) => ({
       display: 'none',
     },
   },
-
   '& .link': {
     color: theme.palette.navLinks.main,
     padding: '0 12px',

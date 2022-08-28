@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom';
 const Styled = {
   Root: styled(Box)({
     width: '40vw',
-    backgroundColor: 'purple',
     ['@media (max-width:855px)']: {
       width: 'max-content',
     },
@@ -19,7 +18,7 @@ const Signature = styled('img')({
   display: 'block',
   objectFit: 'contain',
   objectPosition: '50% 50%',
-  height: '60px',
+  height: '78px',
   width: 'max-content',
   margin: '0 auto',
   cursor: 'pointer',
