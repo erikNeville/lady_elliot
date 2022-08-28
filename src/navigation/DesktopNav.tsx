@@ -7,22 +7,16 @@ import { NavMenuButton } from './components/NavMenuButton';
 import { styled } from '@mui/system';
 
 const RootContainer = styled('nav')(({ theme }) => ({
-  position: 'relative',
+  display: 'flex',
   background: theme.palette.nav.main,
   alignItems: 'center',
-  // justifyContent: 'center',
   justifyContent: 'space-between',
   padding: '18px 0',
-  display: 'flex',
   flexFlow: 'row nowrap',
   height: `${DESKTOP_NAV_HEIGHT}px`,
   ['@media (max-width:855px)']: {
-    // height: '72px',
     padding: '18px 40px',
-    // padding: '18px 40px',
     maxHeight: '72px',
-    // flexFlow: 'column nowrap',
-    // justifyContent: 'space-between',
   },
   '& .nav-links': {
     display: 'flex',

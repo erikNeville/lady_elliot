@@ -53,21 +53,20 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <MenuStateProvider>
-        <Header hideNav={hideNav}>
-          <Switch>
-            <LeRoute exact path="/" component={Home} />
-            <LeRoute path="/gallery" title="Gallery" component={Gallery} />
-            <LeRoute path="/about" title="About" component={About} />
-            <LeRoute path="/contact" title="Contact" component={Contact} />
-            {/* <LeRoute path="/events" component={EventsShowcases} /> */}
-            <LeRoute
-              path="/commissions"
-              title="Commissions"
-              component={Commissions}
-            />
-            <LeRoute path="/:category" title="Gallery" component={Collection} />
-          </Switch>
-        </Header>
+        <Header hideNav={hideNav} />
+        <Switch>
+          <LeRoute exact path="/" component={Home} />
+          <LeRoute path="/gallery" title="Gallery" component={Gallery} />
+          <LeRoute path="/about" title="About" component={About} />
+          <LeRoute path="/contact" title="Contact" component={Contact} />
+          {/* <LeRoute path="/events" component={EventsShowcases} /> */}
+          <LeRoute
+            path="/commissions"
+            title="Commissions"
+            component={Commissions}
+          />
+          <LeRoute path="/:category" title="Gallery" component={Collection} />
+        </Switch>
       </MenuStateProvider>
     </BrowserRouter>
   );

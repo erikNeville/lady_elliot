@@ -14,13 +14,13 @@ const Styled = {
   Root: styled('div', {
     shouldForwardProp: (prop) => prop !== 'hidden',
   })<{ hidden: boolean }>(({ hidden }) => ({
-    overflow: 'auto',
-    boxShadow: hidden ? 'none' : '0 10px 10px -5px',
-    textAlign: 'center',
-    width: '100%',
     position: 'fixed',
     top: 0,
     left: 0,
+    overflow: 'hidden',
+    boxShadow: hidden ? 'none' : '0 10px 10px -5px',
+    textAlign: 'center',
+    width: '100%',
     zIndex: 1030,
     transform: `translateY(${hidden ? '-90px' : 0})`,
     transition: 'all 0.5s ease',
@@ -29,10 +29,9 @@ const Styled = {
 
 interface Props {
   hideNav: boolean;
-  children: React.ReactNode;
 }
 
-const Header: React.FC<Props> = ({ hideNav, children }) => {
+const Header: React.FC<Props> = ({ hideNav }) => {
   const { menustate, setMenustate } = useMenustate();
 
   const body = document.querySelector('body');
@@ -77,13 +76,10 @@ const Header: React.FC<Props> = ({ hideNav, children }) => {
   }, [window, autoHideMobileNav]);
 
   return (
-    <>
-      <Styled.Root hidden={hideNav}>
-        <DesktopNav displaymenu={menustate} toggleMobileNav={toggleMobileNav} />
-        <MobileNav displaymenu={menustate} toggleMobileNav={toggleMobileNav} />
-      </Styled.Root>
-      {children}
-    </>
+    <Styled.Root hidden={hideNav}>
+      <DesktopNav displaymenu={menustate} toggleMobileNav={toggleMobileNav} />
+      <MobileNav displaymenu={menustate} toggleMobileNav={toggleMobileNav} />
+    </Styled.Root>
   );
 };
 
