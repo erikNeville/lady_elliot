@@ -12,6 +12,9 @@ const NavButton = styled(Button)(({ theme }) => ({
   color: theme.palette.navLinks.main,
   fontSize: '22px',
   border: 'none',
+  padding: 0,
+  minWidth: '0px',
+  width: '64px',
   display: 'none',
   '& .menu': {
     cursor: 'pointer',
@@ -33,7 +36,7 @@ const NavButton = styled(Button)(({ theme }) => ({
     backgroundColor: 'transparent',
   },
   '@media (max-width:855px)': {
-    width: '100%',
+    // width: '100%',
     animation: `${fadeIn} ease 1s`,
     display: 'block',
   },

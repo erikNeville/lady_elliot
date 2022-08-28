@@ -469,7 +469,7 @@ const initState: ImageState = {
     {
       src: crimsonFishingBear,
       title: 'Crimson Fishing Bear',
-      category: Categories.Animals,
+      category: Categories.Landscapes,
       medium: ACRYLIC,
       width: 18,
       height: 24,
@@ -533,7 +533,7 @@ const initState: ImageState = {
     {
       src: hibiscusRoseHumpbackWhale,
       title: 'Hibiscus Rose Humpback Whale',
-      category: Categories.Animals,
+      category: Categories.Landscapes,
       medium: ACRYLIC,
       width: 16,
       height: 24,
@@ -541,7 +541,7 @@ const initState: ImageState = {
     {
       src: highlandLonghorn,
       title: 'Highland Longhorn',
-      category: Categories.Animals,
+      category: Categories.Landscapes,
       medium: ACRYLIC,
       width: 10,
       height: 20,

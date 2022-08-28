@@ -11,18 +11,31 @@ export interface HeaderProps {
 }
 
 const Styled = {
-  Root: styled('div')({
-    overflow: 'hidden',
-    boxShadow: '0 10px 10px -5px',
+  Root: styled('div', {
+    shouldForwardProp: (prop) => prop !== 'hidden',
+  })<{ hidden: boolean }>(({ hidden }) => ({
+    overflow: 'auto',
+    boxShadow: hidden ? 'none' : '0 10px 10px -5px',
     textAlign: 'center',
     width: '100%',
     position: 'fixed',
+    top: 0,
+    left: 0,
     zIndex: 1030,
-  }),
+    transform: `translateY(${hidden ? '-90px' : 0})`,
+    transition: 'all 0.5s ease',
+  })),
 };
 
-const Header: React.FC = () => {
+interface Props {
+  hideNav: boolean;
+  children: React.ReactNode;
+}
+
+const Header: React.FC<Props> = ({ hideNav, children }) => {
   const { menustate, setMenustate } = useMenustate();
+
+  const body = document.querySelector('body');
 
   const toggleMobileNav = React.useCallback(() => {
     if (menustate === false) {
@@ -46,18 +59,31 @@ const Header: React.FC = () => {
   }, [menustate, setMenustate]);
 
   React.useEffect(() => {
-    document.querySelector('body')?.addEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+    if (body) {
+      body.addEventListener('scroll', handleScroll);
+
+      return (): void => {
+        body.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [body, handleScroll]);
 
   React.useEffect(() => {
     window.addEventListener('resize', autoHideMobileNav);
-  }, [autoHideMobileNav]);
+
+    return (): void => {
+      window.removeEventListener('resize', autoHideMobileNav);
+    };
+  }, [window, autoHideMobileNav]);
 
   return (
-    <Styled.Root>
-      <DesktopNav displaymenu={menustate} toggleMobileNav={toggleMobileNav} />
-      <MobileNav displaymenu={menustate} toggleMobileNav={toggleMobileNav} />
-    </Styled.Root>
+    <>
+      <Styled.Root hidden={hideNav}>
+        <DesktopNav displaymenu={menustate} toggleMobileNav={toggleMobileNav} />
+        <MobileNav displaymenu={menustate} toggleMobileNav={toggleMobileNav} />
+      </Styled.Root>
+      {children}
+    </>
   );
 };
 
