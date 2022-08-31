@@ -17,9 +17,7 @@ const Styled = {
 const Signature = styled('img')({
   display: 'block',
   objectFit: 'contain',
-  objectPosition: '50% 50%',
   height: '78px',
-  width: '100%',
   margin: '0 auto',
   cursor: 'pointer',
 });

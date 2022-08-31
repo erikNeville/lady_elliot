@@ -12,10 +12,10 @@ const RootContainer = styled('nav')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: '18px 0',
-  flexFlow: 'row nowrap',
+  maxWidth: '100%',
   height: `${DESKTOP_NAV_HEIGHT}px`,
   ['@media (max-width:855px)']: {
-    padding: '18px 40px',
+    padding: '18px 32px',
     maxHeight: '72px',
   },
   '& .nav-links': {

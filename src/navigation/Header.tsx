@@ -15,15 +15,12 @@ const Styled = {
     shouldForwardProp: (prop) => prop !== 'hidden',
   })<{ hidden: boolean }>(({ hidden }) => ({
     position: 'fixed',
-    top: 0,
-    left: 0,
     overflow: 'hidden',
     boxShadow: hidden ? 'none' : '0 10px 10px -5px',
-    textAlign: 'center',
     width: '100%',
     zIndex: 1030,
     transform: `translateY(${hidden ? '-90px' : 0})`,
-    transition: 'all 0.5s ease',
+    transition: 'transform 0.5s ease',
   })),
 };
 

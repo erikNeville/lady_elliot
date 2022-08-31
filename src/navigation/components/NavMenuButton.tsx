@@ -10,20 +10,13 @@ interface NavMenuButtonProps {
 
 const NavButton = styled(Button)(({ theme }) => ({
   color: theme.palette.navLinks.main,
-  fontSize: '22px',
+  fontSize: '18px',
   border: 'none',
   padding: 0,
   minWidth: '0px',
   width: '64px',
   display: 'none',
   '& .menu': {
-    cursor: 'pointer',
-    color: theme.palette.navLinks.main,
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '18px',
     transition: 'all 0.2s ease-out',
     '&:hover': {
       letterSpacing: '2px',

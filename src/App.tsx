@@ -31,7 +31,7 @@ const App: React.FC = () => {
     if (typeof window !== 'undefined') {
       const { scrollY } = window;
 
-      if (scrollY > lastScrollY) {
+      if (scrollY > lastScrollY && scrollY > 84) {
         setHideNav(true);
       } else {
         setHideNav(false);
